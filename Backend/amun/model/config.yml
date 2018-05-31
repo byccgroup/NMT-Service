@@ -1,0 +1,28 @@
+
+# Paths are relative to config file location
+relative-paths: yes
+
+# performance settings
+beam-size: 12
+devices: [0]
+normalize: yes
+threads-per-device: 1
+threads: 8
+
+mode: CPU
+
+# scorer configuration
+scorers:
+  F0:
+    path: ./model.npz
+    type: Nematus
+
+# scorer weights
+weights:
+  F0: 1.0
+
+bpe: ./ende.bpe
+
+# vocabularies
+source-vocab: ./vocab.en.json
+target-vocab: ./vocab.de.json
