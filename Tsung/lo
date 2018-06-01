@@ -1,0 +1,6 @@
+nohup: ignoring input
+Starting Tsung
+Log directory is: /home/bycc/NMTService/Tsung/log/20180505-0647
+[os_mon] memory supervisor port (memsup): Erlang has closed
+[os_mon] cpu supervisor port (cpu_sup): Erlang has closed
+time used: 72494 ms

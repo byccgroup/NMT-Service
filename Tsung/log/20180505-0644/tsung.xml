@@ -1,0 +1,40 @@
+<?xml version="1.0"?><tsung loglevel="notice" version="1.0">
+
+  <clients>
+    <client host="localhost" use_controller_vm="false"/>
+  </clients>
+  
+  <servers>
+  <server host="localhost" port="80" type="tcp"/>
+</servers>
+
+  <monitoring>
+    <monitor host="localhost" type="erlang"/>
+  </monitoring>
+  
+  <load>
+  <arrivalphase phase="1" duration="10" unit="second">
+     <users maxnumber="10" interarrival="0.5" unit="second"/>
+   </arrivalphase>
+  </load>
+
+  <options>
+   <option type="ts_http" name="user_agent">
+    <user_agent probability="80">Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.7.8) Gecko/20050513 Galeon/1.3.21</user_agent>
+    <user_agent probability="20">Mozilla/5.0 (Windows; U; Windows NT 5.2; fr-FR; rv:1.7.8) Gecko/20050511 Firefox/1.0.4</user_agent>
+   </option>
+  </options>
+
+  <sessions>
+  <session name="rec20180505-0548" probability="100" type="ts_http">
+<request><http url="http://192.168.2.216/" version="1.1" method="GET"/></request>
+
+<setdynvars sourcetype="eval" code="fun({Pid,DynVars})->  {ok,Val}=file:read_file('/home/bycc/NMTService/Tsung/data/p10'),  StrVal=binary_to_list(Val) end.">
+<var name="inputid"/>
+</setdynvars>
+
+<request subst="true"><http url="/sendText" version="1.1" contents="inputtext=%%_inputid%%" content_type="application/x-www-form-urlencoded" method="POST"/></request>
+</session>
+
+ </sessions>
+</tsung>

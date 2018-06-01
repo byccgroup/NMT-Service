@@ -1,0 +1,11 @@
+<session name='rec20180505-0548' probability='100' type='ts_http'>
+<request><http url='http://192.168.2.216/' version='1.1' method='GET'></http></request>
+
+<setdynvars sourcetype="eval" code="fun({Pid,DynVars})->
+	{ok,Val}=file:read_file('/home/bycc/NMTService/Tsung/data/p10'),
+	StrVal=binary_to_list(Val) end.">
+<var name="inputid" />
+</setdynvars>
+
+<request subst="true"><http url='/sendText' version='1.1' contents='inputtext=%%_inputid%%' content_type='application/x-www-form-urlencoded' method='POST'></http></request>
+</session>

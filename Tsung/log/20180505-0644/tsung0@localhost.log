@@ -1,0 +1,18 @@
+
+=INFO REPORT==== 5-May-2018::06:44:51 ===
+  ts_launcher_static:(5:<0.87.0>) Launch msg receive ("localhost")
+
+=INFO REPORT==== 5-May-2018::06:44:51 ===
+         ts_launcher:(5:<0.88.0>) Launch msg receive ("localhost")
+
+=INFO REPORT==== 5-May-2018::06:44:51 ===
+         ts_launcher:(5:<0.88.0>) Expected duration of first phase: 10.0 sec (10 users) 
+
+=INFO REPORT==== 5-May-2018::06:44:51 ===
+         ts_launcher:(5:<0.88.0>) Activate launcher (10 users) in 1361 msec 
+
+=INFO REPORT==== 5-May-2018::06:44:57 ===
+         ts_launcher:(5:<0.88.0>) This was the last phase, wait for connected users to finish their session
+
+=INFO REPORT==== 5-May-2018::06:46:12 ===
+     ts_launcher_mgr:(5:<0.82.0>) No more active users tsung0@localhost "19758"
