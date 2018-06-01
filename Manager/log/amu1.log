@@ -1,0 +1,36 @@
+[Sat May 5 02:15:12 2018] (I) Options: 
+allow-unk: false
+beam-size: 5
+bpe: /home/bycc/NMTService/Backend/amun/model/ende.bpe
+cpu-threads: 8
+debpe: yes
+devices: [0]
+gpu-threads: 1
+n-best: false
+no-debpe: false
+normalize: yes
+relative-paths: yes
+return-alignment: no
+scorers:
+  F0:
+    path: /home/bycc/NMTService/Backend/amun/model/model.npz
+    type: Nematus
+show-weights: false
+softmax-filter:
+  []
+source-vocab: /home/bycc/NMTService/Backend/amun/model/vocab.en.json
+target-vocab: /home/bycc/NMTService/Backend/amun/model/vocab.de.json
+weights:
+  F0: 1.0
+wipo: false
+[Sat May 5 02:15:13 2018] (I) Loading scorers...
+[Sat May 5 02:15:13 2018] (I) Loading model /home/bycc/NMTService/Backend/amun/model/model.npz onto gpu0
+[Sat May 5 02:15:14 2018] (I) Loading model /home/bycc/NMTService/Backend/amun/model/model.npz
+[Sat May 5 02:15:15 2018] (I) Reading from stdin
+[Sat May 5 02:15:15 2018] (I) using bpe: /home/bycc/NMTService/Backend/amun/model/ende.bpe
+[Sat May 5 02:15:15 2018] (I) De-BPE output
+[Sat May 5 02:15:15 2018] (I) Setting CPU thread count to 8
+[Sat May 5 02:15:15 2018] (I) Setting GPU thread count to 1
+[Sat May 5 02:15:15 2018] (I) Total number of threads: 9
+[Sat May 5 02:15:15 2018] (I) Reading input2
+begin

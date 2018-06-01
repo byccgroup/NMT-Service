@@ -1,0 +1,7 @@
+#!/bin/sh
+
+#开启redis
+/opt/redis/redis-server /opt/redis/redis.conf &
+
+#开启nginx
+#sudo sh /usr/local/nginx/sbin/nginx &

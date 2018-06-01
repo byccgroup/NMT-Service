@@ -1,0 +1,14 @@
+#!/bin/sh
+
+finder="lbbroker2"
+brokerpath="/home/bycc/NMTService/MidMessage"
+
+cmd=$(ps -C ${finder}|awk '{print $4}')
+
+if [ "${cmd}" = "${finder}" ]
+    then
+        echo the ${cmd} has existed.
+else
+    nohup ${brokerpath}/lbbroker2 >log/broker.log 2>&1 &
+fi
+

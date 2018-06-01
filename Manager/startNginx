@@ -1,0 +1,7 @@
+#!/bin/sh
+
+cd /usr/local/nginx/sbin/
+sudo ./nginx
+#/usr/local/nginx/sbin/nginx -s quit
+#/usr/local/nginx/sbin/nginx -s reload
+

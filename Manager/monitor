@@ -1,0 +1,73 @@
+#!/bin/sh
+#
+#注意：tomcat不进行检查，请确保tomcat正常工作
+#
+
+#服务器路径
+path="/home/bycc/NMTService"
+
+#检查项
+finderNginx="nginx"
+finderRedis="redis-server"
+finderLb="lbbroker2"
+finderAmu="amun"
+
+Amu_num=3 #开启的后端Amun数目
+
+#进程信息获取
+count_nginx=$(ps -ef | grep ${finderNginx} | grep -v "grep" | wc -l)
+count_redis=$(ps -ef | grep ${finderRedis} | grep -v "grep" | wc -l)
+count_lb=$(ps -ef | grep ${finderLb} | grep -v "grep" | wc -l)
+count_amu=$(ps -ef | grep ${finderAmu} | grep -v "grep" | wc -l)
+
+#检查nginx
+if [ $count_nginx -gt 0 ]; then
+    #进程nginx正常
+    echo process ${finderNginx} number is $count_nginx .
+else
+    #进程nginx异常
+    ./startNginx
+    echo restart nginx  
+fi
+
+#检查redis
+if [ $count_redis -eq 1 ]; then
+    #进程redis正常
+    echo process ${finderRedis} number is $count_redis .
+else
+    #进程redis异常
+    ./startRedis
+    echo start redis
+fi
+
+#检查lbbroker, amun
+
+if [ $count_lb -eq 1 ]; then
+    #进程lbbroker正常
+    echo process ${finderLb} number is $count_lb .
+    if [ $count_amu -ne $Amu_num ]; then
+        #进程lbbroker正常，amun异常
+        if [ $count_amu -gt 0 ]; then
+            ps -C ${finderAmu} | grep ${finderAmu} | awk '{print $1}' | xargs kill
+        fi
+        ./startAmu
+        echo restart ${finderAmu} .
+    else
+        #进程lbbroker, amun均正常
+        echo process ${finderAmu} number is $count_amu .
+    fi
+else
+    echo process ${finderLb} broker .
+    #进程lbbroker异常，进程amun正常
+    if [ $count_amu -gt 0 ]; then
+        ps -C ${finderAmu} | grep ${finderAmu} | awk '{print $1}' | xargs kill
+        echo kill process ${finderAmu}
+    fi
+    
+    #重启lbbroker,amun进程
+    ./startBroker
+    ./startAmu  
+    echo restart lbbroker amun .
+fi
+
+#检查tomcat

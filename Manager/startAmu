@@ -1,0 +1,14 @@
+#!/bin/sh
+
+amunfile="/home/bycc/NMTService/Backend/amun"
+
+#start a cpu model
+nohup ${amunfile}/bin0/amun -c ${amunfile}/configs/config_cpu.yml >log/amu0.log 2>&1 &
+#start two gpu model
+nohup ${amunfile}/bin1/amun -c ${amunfile}/configs/config_gpu.yml >log/amu1.log 2>&1 &
+nohup ${amunfile}/bin2/amun -c ${amunfile}/configs/config_gpu.yml >log/amu2.log 2>&1 &
+
+#${amunfile}/bin3/amun -c ${amunfile}/configs/python.yml &
+#${amunfile}/bin4/amun -c ${amunfile}/configs/python.yml &
+#${amunfile}/bin5/amun -c ${amunfile}/configs/python.yml &
+#${amunfile}/bin6/amun -c ${amunfile}/configs/python.yml &

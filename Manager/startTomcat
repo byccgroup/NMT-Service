@@ -1,0 +1,5 @@
+#!/bin/sh
+
+#start tomcat@1
+echo "1111pwd!" | sudo -S /opt/tomcat8/bin/startup.sh >log/tomcat_1.log 2>&1 &
+echo "1111pwd!" | sudo -S /home/bycc/NMTService/Server/tomcat8/bin/startup.sh >log/tomcat_2.log 2>&1 &
